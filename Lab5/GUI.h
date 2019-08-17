@@ -1,27 +1,28 @@
 #pragma once
 #include <string>
 #include <iostream>
-//#include "Chessboard.h"
-
-using namespace std;
+#include "GameMap.h"
+#include "Player.h"
+#include "Island.h"
 
 class GUI
 {
 public:
-	GUI();
-	//GUI(Chessboard& rGame);
+	GUI(GameMap& rGame); // init user interface
 
-	void showMenu() const;
-	char getSelection();
-	void showBoards() const;
-	//char getBoard();
-	char setBoard(char mySelection);
-
-	void print(string output) const;
-	void calculateShortestPath();
-	void showChessboard() const;
+	void showMenu() const; // shows main menu options
+	char getSelection(); // asks for main menu choice
+	void showFileInfo() const; // prints information to successfuly read game files 
+	std::string getFileName(); // asks for file name
+	// checks if game file content is valid, inits all structures
+	// play game: includes turns for human and computer player
+	int setGameMap(std::string fileName); 
+	void showGameMap() const; // prints all Islands and Connections with weights
+	Node* getIslandChoice(); // asks for user input for human player
+	Node* getIslandRandom(); // randomly gets an Island for computer player
+	void print(std::string output) const; // prints something
 
 private:
-	//Chessboard& m_rGame;
-	// list storage needed?
+	GameMap& m_rGame;
+
 };

@@ -100,9 +100,9 @@ void Graph::remove(Node& rNode)
 		}
 	}
 	// - finden sie den Pointer mit der Adresse von 'rNode' in m_nodes.
-	// 		- der Pointer auf rNode soll aus m_nodes entfernt werden!
+	// - der Pointer auf rNode soll aus m_nodes entfernt werden!
 	m_nodes.remove(&rNode);
-	// 		- der Pointer auf rNode muss mit 'delete' freigegeben werden!
+	// - der Pointer auf rNode muss mit 'delete' freigegeben werden!
 	delete &rNode;
 }
 
@@ -146,7 +146,6 @@ struct DijkstraEntry {
 	Edge* prevEdge;
 };
 
-//void Graph::findShortestPathDijkstra(std::deque<Edge*>& rPath, const Node& rSrcNode, const Node& rDstNode)
 void Graph::findShortestPathDijkstra(std::deque<Edge*>& rPath, const Node* rSrcNode, const Node* rDstNode)
 {
 	// nodes to search for in the graph:
@@ -154,7 +153,7 @@ void Graph::findShortestPathDijkstra(std::deque<Edge*>& rPath, const Node* rSrcN
 	Node* pDst = findNode(rDstNode->getID());
 
 	// Test points:
-	std::cout << "\nBerechne die kuerzeste Strecke von " << rSrcNode->getID() << " nach " << rDstNode->getID() << ":" << std::endl;
+	//std::cout << "\nBerechne die kuerzeste Strecke von " << rSrcNode->getID() << " nach " << rDstNode->getID() << ":" << std::endl;
 	if (pSrc == NULL || pDst == NULL)
 		throw "rSrcNode oder rDstNode war nicht im Graphen vorhanden!";
 
